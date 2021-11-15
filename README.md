@@ -1,26 +1,57 @@
-# ![4Geeks Logo](http://assets.breatheco.de/apis/img/images.php?blob&random&cat=icon&tags=4geeks,16) HTML Hello
+# <img src="https://github.com/jesus-cano-ortega/js-introduction-exercises/blob/main/assets/resources/img/face.png" width="45" alt="Personal Logo"> Jest Testing
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/html-hello.git)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://orange-harrier-neg781kt.ws-eu18.gitpod.io/)
 
-The most basic boilerplate for any 4Geeks Academy student using the [gitpod.io](gitpod.io) coding editor.
+Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase. It allows you to write tests with an approachable, familiar and feature-rich API that gives you results quickly.
 
-[![How to open html/css preview of my project in gitpod](https://github.com/4GeeksAcademy/Templates-Boilerplates/blob/master/assets/hello-html-intro.png?raw=true)](https://youtu.be/dfbDCMu_p-0)
+### Getting started 
 
-## What to do next?
+Install Jest using NPM
 
-Create an `index.html` file with the [basic HTML structure](http://content.breatheco.de/lesson/what-is-html-learn-html#page-structure) and see it live by running a web-server using the following command:
+```
+npm install --save-dev jest
 
-```sh
-$ pip3 install flask && python3 server.py
 ```
 
-- You can create as many HTML files as you want
-- You can also create CSS files and import them into your website using a `<link>` tag placed between the `<head></head>` tags, like this:
+Let's get started by writing a test for a hypothetical function that adds two numbers. First, create a sum.js file:
+```
+function sum(a, b) {
+  return a + b;
+}
+module.exports = {sum};
+```
 
-```html
-<head>
-  ...
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  ...
-</head>
+Then, create a file named test.js. This will contain our actual test:
+```
+const sum = require('./sum.js');
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3);
+});
+```
+Add the following section to your package.json:
+```
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+Finally, use npm run test and Jest will print this message:
+```
+PASS  ./sum.test.js
+✓ adds 1 + 2 to equal 3 (5ms)
+```
+
+##### REMEMBER: 
+
+Once the progress and flow of the project is finished, you must commit and push the repository remotely, using the following command:
+
+```
+
+$ git add . 
+$ git commit -m "Message"
+$ git push origin repo-remote
+
 ```
